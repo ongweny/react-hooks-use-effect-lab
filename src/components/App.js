@@ -7,7 +7,7 @@ function App() {
   const [currentQuestionId, setCurrentQuestion] = useState(1);
   const [score, setScore] = useState(0);
   const currentQuestion = questions.find((q) => q.id === currentQuestionId);
-
+  
   function handleQuestionAnswered(correct) {
     if (currentQuestionId < questions.length) {
       setCurrentQuestion((currentQuestionId) => currentQuestionId + 1);
@@ -22,12 +22,15 @@ function App() {
   return (
     <main>
       <section>
-        {currentQuestion ? (
+        {currentQuestion ? 
+        (
           <Question
             question={currentQuestion}
             onAnswered={handleQuestionAnswered}
           />
-        ) : (
+        ) 
+        :
+        (
           <>
             <h1>Game Over</h1>
             <h2>Total Correct: {score}</h2>
